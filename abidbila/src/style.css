@@ -1,0 +1,338 @@
+body {
+    font-family: 'Quicksand', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: linear-gradient(135deg, #f0f0f5 0%, #e6e6fa 100%);
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+#app {
+    background-color: #ffffff;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    width: 100%;
+}
+
+h1 {
+    font-family: 'Pacifico', cursive;
+    text-align: center;
+    color: #FF69B4; /* Hot Pink */
+    margin-bottom: 30px;
+    font-size: 2.8em;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+}
+
+/* Input Section */
+.input-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 30px;
+    align-items: center;
+}
+
+.input-section input[type="text"] {
+    flex-grow: 1;
+    padding: 12px 15px;
+    border: 2px solid #FFC0CB; /* Light Pink */
+    border-radius: 8px;
+    font-size: 1.1em;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input-section input[type="text"]:focus {
+    border-color: #FF69B4;
+    box-shadow: 0 0 0 3px rgba(255, 105, 180, 0.2);
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 1em;
+    color: #666;
+    gap: 8px;
+}
+
+.checkbox-container input[type="checkbox"] {
+    display: none; /* Hide default checkbox */
+}
+
+.checkmark {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #FF69B4;
+    border-radius: 4px;
+    position: relative;
+    display: inline-block;
+    background-color: #fff;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.checkbox-container input[type="checkbox"]:checked + .checkmark {
+    background-color: #FF69B4;
+    border-color: #FF69B4;
+}
+
+.checkbox-container input[type="checkbox"]:checked + .checkmark::after {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 2px;
+    width: 6px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+
+.input-section button {
+    padding: 12px 25px;
+    background-color: #FF69B4;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.input-section button:hover:not(:disabled) {
+    background-color: #FF1493; /* Deeper Pink */
+    transform: translateY(-2px);
+}
+
+.input-section button:disabled {
+    background-color: #FFC0CB;
+    cursor: not-allowed;
+}
+
+/* Filters Section */
+.filters-section {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px dashed #FFC0CB;
+}
+
+.filters-section button {
+    padding: 10px 20px;
+    margin: 0 8px;
+    border: 1px solid #FFC0CB;
+    border-radius: 25px;
+    background-color: #fff;
+    color: #FF69B4;
+    font-size: 0.95em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filters-section button.active {
+    background-color: #FF69B4;
+    color: white;
+    border-color: #FF69B4;
+    box-shadow: 0 4px 10px rgba(255, 105, 180, 0.3);
+}
+
+.filters-section button:hover:not(.active) {
+    background-color: #fff0f5;
+    color: #FF1493;
+}
+
+/* Empty Message */
+.empty-message {
+    text-align: center;
+    color: #888;
+    padding: 30px;
+    border: 1px dashed #FFC0CB;
+    border-radius: 10px;
+    margin-top: 20px;
+    font-style: italic;
+    background-color: #fffafc;
+}
+
+/* Favorite Section (for upcoming dates) */
+.favorite-section {
+    background-color: #fff9c4; /* Light Yellow */
+    border: 1px dashed #ffd54f; /* Yellow border */
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 25px;
+}
+.favorite-section h3 {
+    color: #FBC02D; /* Darker Yellow */
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Pacifico', cursive;
+    font-size: 1.5em;
+}
+.favorite-section ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 15px;
+}
+.favorite-section .favorite-item {
+    background-color: transparent;
+    border-bottom: none;
+    padding: 8px 0;
+    margin-bottom: 5px;
+    color: #6a6a6a;
+    font-size: 1.1em;
+}
+
+/* Date List */
+.date-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.date-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: #fef0f5; /* Very very light pink */
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: background-color 0.3s;
+}
+.date-item:hover {
+    background-color: #ffe7ee;
+}
+
+.date-text {
+    flex-grow: 1;
+    margin-right: 15px;
+    font-size: 1.15em;
+    color: #444;
+}
+
+.done-date .date-text {
+    text-decoration: line-through;
+    color: #999;
+    font-style: italic;
+}
+
+.favorite-date .date-text {
+    font-weight: 700;
+    color: #FF1493;
+    position: relative;
+    padding-left: 25px;
+}
+.favorite-date .date-text::before {
+    content: '❤️';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.9em;
+}
+
+.actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+    justify-content: flex-end;
+}
+
+.action-button {
+    padding: 8px 15px;
+    font-size: 0.9em;
+    border-radius: 20px; /* Pill shape for action buttons */
+    color: white;
+}
+
+.complete-button {
+    background-color: #28a745; /* Green */
+}
+.complete-button:hover {
+    background-color: #218838;
+}
+
+.revert-button {
+    background-color: #FF9800; /* Orange */
+}
+.revert-button:hover {
+    background-color: #FB8C00;
+}
+
+.favorite-toggle-button {
+    background-color: #8A2BE2; /* Blue Violet */
+}
+.favorite-toggle-button.is-favorite {
+    background-color: #FF1493; /* Hot Pink when favorited */
+}
+.favorite-toggle-button:hover {
+    opacity: 0.9;
+}
+
+.delete-button {
+    background-color: #dc3545; /* Red */
+}
+.delete-button:hover {
+    background-color: #c82333;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #app {
+        padding: 25px;
+    }
+    h1 {
+        font-size: 2.2em;
+    }
+    .input-section {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .input-section button {
+        width: 100%;
+    }
+    .filters-section button {
+        margin: 5px;
+        padding: 8px 15px;
+    }
+    .date-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .date-text {
+        width: 100%;
+        margin-right: 0;
+        text-align: center;
+    }
+    .actions {
+        width: 100%;
+        justify-content: center;
+    }
+}
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8em;
+    }
+    .input-section input[type="text"],
+    .input-section button {
+        font-size: 1em;
+    }
+    .filters-section button {
+        font-size: 0.85em;
+        padding: 6px 10px;
+    }
+    .action-button {
+        padding: 6px 10px;
+        font-size: 0.8em;
+    }
+}
